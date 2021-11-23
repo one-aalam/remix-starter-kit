@@ -6,12 +6,14 @@
   "scripts": {
     "build:remix": "remix build",
     "dev:remix": "remix dev",
-    "postinstall": "remix setup node",
     "start": "remix-serve build",
     "build:css": "cross-env NODE_ENV=production tailwindcss -i ./app/styles/tailwind.css -o ./app/styles/app.css --minify",
     "dev:css": "tailwindcss -i ./app/styles/tailwind.css -o ./app/styles/app.css --watch",
     "dev": "concurrently \"npm:dev:*\"",
-    "build": "npm run build:css && npm run build:remix"
+    "build": "npm run build:css && npm run build:remix",
+    "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore .",
+    "postinstall": "remix setup node",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@remix-run/react": "^1.0.4",
@@ -31,12 +33,28 @@
     "concurrently": "^6.4.0",
     "cross-env": "^7.0.3",
     "daisyui": "^1.16.2",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-remix": "^0.0.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
     "tailwindcss": "^2.2.19",
     "typescript": "^4.1.2"
   },
   "engines": {
     "node": ">=14"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "husky": {
+    "hooks": {
+        "pre-commit": "CI=1 lint-staged"
+    }
+   },
+  "lint-staged": {
+    "*.+(js|mjs|ts|tsx|css|md|yml)": [
+            "prettier --write"
+        ]
+    }
 }
