@@ -4,10 +4,14 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
+    "build:remix": "remix build",
+    "dev:remix": "remix dev",
     "postinstall": "remix setup node",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "build:css": "cross-env NODE_ENV=production tailwindcss -i ./app/styles/tailwind.css -o ./app/styles/app.css --minify",
+    "dev:css": "tailwindcss -i ./app/styles/tailwind.css -o ./app/styles/app.css --watch",
+    "dev": "concurrently \"npm:dev:*\"",
+    "build": "npm run build:css && npm run build:remix"
   },
   "dependencies": {
     "@remix-run/react": "^1.0.4",
@@ -20,6 +24,11 @@
     "@remix-run/dev": "^1.0.4",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.4.0",
+    "concurrently": "^6.4.0",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
     "typescript": "^4.1.2"
   },
   "engines": {
