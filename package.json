@@ -22,6 +22,9 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^1.0.4",
+    "@tailwindcss/aspect-ratio": "^0.3.0",
+    "@tailwindcss/line-clamp": "^0.2.2",
+    "@tailwindcss/typography": "^0.4.1",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "autoprefixer": "^10.4.0",
