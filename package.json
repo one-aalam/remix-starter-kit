@@ -20,6 +20,7 @@
     "@remix-run/serve": "^1.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "remix": "^1.0.4"
   },
   "devDependencies": {
@@ -49,12 +50,12 @@
   "sideEffects": false,
   "husky": {
     "hooks": {
-        "pre-commit": "CI=1 lint-staged"
+      "pre-commit": "CI=1 lint-staged"
     }
-   },
+  },
   "lint-staged": {
     "*.+(js|mjs|ts|tsx|css|md|yml)": [
-            "prettier --write"
-        ]
-    }
+      "prettier --write"
+    ]
+  }
 }
