@@ -11,7 +11,7 @@ import {
   useLocation,
   useLoaderData
 } from "remix";
-import type { LinksFunction, LoaderFunction } from "remix";
+import type { LinksFunction } from "remix";
 
 import appStyleUrl from "~/styles/app.css";
 
@@ -46,7 +46,7 @@ export default function App() {
   );
 }
 
-export const loader: LoaderFunction = () =>  {
+export function loader() {
     return {
       ENV: {
         SOME_SECRET: process.env.SOME_SECRET,

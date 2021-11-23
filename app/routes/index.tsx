@@ -62,7 +62,7 @@ export default function Index() {
   return (
     <div className="remix__page">
       <main>
-        <h2>Welcome to Remix <FaBeer className="inline-block text-2xl" />!</h2>
+        <h2>Welcome to Remix <FaBeer className="w-7 h-7 p-1 inline-block bg-purple-600 text-white" />!</h2>
         <p>We're stoked that you're here. 🥳</p>
         <p>
           Feel free to take a look around the code to see how Remix does things,
