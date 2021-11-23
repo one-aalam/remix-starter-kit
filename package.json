@@ -16,11 +16,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
     "@remix-run/react": "^1.0.4",
     "@remix-run/serve": "^1.0.4",
     "dotenv": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.1.1",
     "react-icons": "^4.3.1",
     "remix": "^1.0.4",
     "remix-seo": "^0.0.3"
