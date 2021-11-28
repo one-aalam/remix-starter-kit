@@ -1,8 +1,8 @@
 import type { MetaFunction, LoaderFunction } from "remix";
 import { useLoaderData, json, Link } from "remix";
-import { FaBeer } from "react-icons/fa"
 
 import StarterKit from "~/components/StarterKit"
+import SiteLayout from '../components/SiteLayout'
 
 type IndexData = {
   resources: Array<{ name: string; url: string }>;
@@ -30,13 +30,13 @@ export let loader: LoaderFunction = () => {
       }
     ],
     topPages: [
-      {
-        to: "/gallery",
-        name: "Browse Components (Coming soon)"
-      },
+    //   {
+    //     to: "/gallery",
+    //     name: "Browse Components (Coming soon)"
+    //   },
       {
         to: "/auth",
-        name: "See Supabase in action (Coming Soon)",
+        name: "See Supabase in action",
         isPrimary: true
       },
     ]
@@ -59,16 +59,17 @@ export default function Index() {
   let data = useLoaderData<IndexData>();
 
   return (
+      <SiteLayout>
     <div className="min-h-screen flex flex-col justify-center">
       <main>
         <StarterKit/>
-        <p className="text-center">Remix with components like alert/toast, button, separator, modal/dialog, spinner, etc. For Supabase integration as a plugin, and full-stack authentication support checkout the <strong>main</strong> branch</p>
+        <p className="text-center">Remix and Supabase for server rendered web applications, pretty good setup for eslint, prettier, git hooks, etc. and friction-less and robust UI development with TailwindCSS, DaisyUI and Headless UI</p>
       </main>
       <aside className="text-center mt-4">
         <ul className="flex flex-row justify-center gap-2">
           {data.topPages.map(page => (
             <li key={page.to} className="remix__page__resource">
-                <Link className={`btn btn-primary ${!page.isPrimary && 'btn-outline'}`} to={page.to} prefetch="intent">{page.name}</Link>
+                <Link className={`btn btn-primary ${!page.isPrimary && 'btn-outline'}`} to={page.to} prefetch="intent">{page.name} &rarr;</Link>
             </li>
           ))}
         </ul>
@@ -83,5 +84,6 @@ export default function Index() {
         </ul>
       </aside>
     </div>
+    </SiteLayout>
   );
 }

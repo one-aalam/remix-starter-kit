@@ -11,7 +11,7 @@ import {
   useLocation,
   useLoaderData
 } from "remix";
-import type { LinksFunction } from "remix";
+import type { LinksFunction, LoaderFunction } from "remix";
 
 import appStyleUrl from "~/styles/app.css";
 
@@ -46,11 +46,12 @@ export default function App() {
   );
 }
 
-export function loader() {
+export let loader: LoaderFunction = async ({ request }) => {
     return {
       ENV: {
-        SOME_SECRET: process.env.SOME_SECRET,
-      }
+        SOME_SECRET: process?.env?.SOME_SECRET,
+      },
+      data: 'some'
     };
 }
 
@@ -75,13 +76,13 @@ function Document({
         {children}
         <RouteChangeAnnouncement />
         <ScrollRestoration />
-        <script
+        {data && data.ENV && <script
           dangerouslySetInnerHTML={{
             __html: `window.ENV = ${JSON.stringify(
               data.ENV
             )}`
           }}
-        />
+        />}
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
@@ -91,16 +92,8 @@ function Document({
 
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="remix-app">
-      <header className="remix-app__header">
-        {/* Header content goes here.. */}
-      </header>
-      <div className="remix-app__main">
-        <div className="container mx-auto remix-app__main-content">{children}</div>
-      </div>
-      <footer className="remix-app__footer">
-        {/* Footer content goes here.. */}
-      </footer>
+    <div className="remix-root remix-app">
+      {children}
     </div>
   );
 }
@@ -141,7 +134,6 @@ export function CatchBoundary() {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
   return (
     <Document title="Error!">
       <Layout>
