@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="./public/rsk.png" height="80px" title="Remix Starter Kit" />
+<img src="./public/rsk.png" height="140px" title="Remix Starter Kit" />
 </div>
 <br />
 
@@ -117,9 +117,7 @@ create policy "Anyone can upload an avatar."
 ```
 
 ## Known Issues
-
-
-in `package.json` under the `lint-staged` section for linting on commits
+- Issue with Supabase client code accessible in the browser (as shared above)
 
 ## License
 MIT
