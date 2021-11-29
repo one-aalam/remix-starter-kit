@@ -7,7 +7,7 @@
 <div align="center"><strong>Remix + Supabase starter for Typescript lovers</strong></div>
 
 
-_Remix Starter Kit_ is an opinionated boilerplate based off of [Remix](https://remix.run/), with all the bells and whistles you would want ready, up and running when starting a Renix project with Supabase.
+_Remix Starter Kit_ is an opinionated boilerplate based off of [Remix](https://remix.run/), with all the bells and whistles you would want ready, up and running when starting a Remix project with Supabase.
 <br/>
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=flat-square&color=5e17eb&labelColor=000000" alt="PRs welcome!" />
