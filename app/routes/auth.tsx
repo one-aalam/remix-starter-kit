@@ -5,7 +5,7 @@ import SiteLayout from "~/components/SiteLayout";
 import StarterKit from "~/components/StarterKit";
 import AuthForm, { AuthCreds } from "../components/AuthForm"
 import { supabaseToken } from "../cookies"
-import { supabase } from '../lib/supabase'
+import { supabase } from '../lib/supabase.server'
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {

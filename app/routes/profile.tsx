@@ -1,6 +1,6 @@
 import { LoaderFunction, redirect, useLoaderData, Form, ActionFunction } from "remix"
 import { User } from '@supabase/supabase-js'
-import { supabase } from '../lib/supabase'
+import { supabase } from '../lib/supabase.server'
 import { isAuthenticated, getUserByRequestToken } from "~/lib/auth"
 import AppLayout from '../components/AppLayout'
 

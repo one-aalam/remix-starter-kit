@@ -69,9 +69,7 @@ If new to Supabase
 Once done, or if you already have a Supabase project
 - Copy the generated project's API authentication details from `https://app.supabase.io/project/<your-awesome-remix-project>/api/default?page=auth`
 - Place the details in `.env` as `SUPABASE_URL` and `SUPABASE_KEY`
-- Install NPM dependencies, by running `yarn`
-
-__If for any odd reasons .env files(`process` access) lead to the client-side side errors, place the keys directly in `/lib/supabase` and work.__
+- Install NPM dependencies, by running `npm install` or `npm i`
 
 Remix Starter Kit supports user profiles and user avatars. To get the profile table and storage ready, execute the following queries at `https://app.supabase.io/project/<your-awesome-remix-project>/editor/sql`
 
@@ -115,9 +113,6 @@ create policy "Anyone can upload an avatar."
   on storage.objects for insert
   with check ( bucket_id = 'avatars' );
 ```
-
-## Known Issues
-- Issue with Supabase client code accessible in the browser (as shared above)
 
 ## License
 MIT

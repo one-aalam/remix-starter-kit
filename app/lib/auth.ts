@@ -1,7 +1,7 @@
 import { redirect } from 'remix'
 import type { User } from '@supabase/supabase-js'
 import { supabaseToken } from '../cookies'
-import { supabase } from './supabase'
+import { supabase } from './supabase.server'
 
 export const getToken = async (request: any) : Promise<string | null> => {
     const cookieHeader = request.headers.get("Cookie");

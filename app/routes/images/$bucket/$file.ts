@@ -1,5 +1,5 @@
 import { LoaderFunction } from "@remix-run/server-runtime";
-import {  supabase } from '../../../lib/supabase'
+import {  supabase } from '../../../lib/supabase.server'
 
 export let loader: LoaderFunction = async ({ params }) => {
     // download the image from Supa bucket
