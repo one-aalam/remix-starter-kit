@@ -2,13 +2,12 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
     mode: 'jit',
-    purge: [
+    content: [
       "./app/**/*.tsx",
       "./app/**/*.jsx",
       "./app/**/*.js",
       "./app/**/*.ts"
     ],
-    darkMode: false, // or 'media' or 'class'
     theme: {
       extend: {
         fontFamily: {
@@ -16,7 +15,6 @@ module.exports = {
         },
       }
     },
-    variants: {},
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),

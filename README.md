@@ -114,5 +114,8 @@ create policy "Anyone can upload an avatar."
   with check ( bucket_id = 'avatars' );
 ```
 
+## Recommendations
+- Use `npm-check-updates` to ineractively update your dependencies using `ncu -i`
+
 ## License
 MIT
