@@ -43,6 +43,7 @@ export let action: ActionFunction = async ({ request }) => {
             isSignIn ? session = data as Session : user = data as User
         }
     } catch(error) {
+        // @ts-ignore
         errors.service = [ error.message ]
     }
 

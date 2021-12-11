@@ -50,7 +50,7 @@ export const handle = {
     useSupabaseClient: () => true
 };
 ```
-for the routes that need the library client-side, like a page with Supabase Storage need ex. `/profile`. If `useSupabaseClient` returns `true` you can initialize the client in the pages/routes
+for the routes that need the library client-side, like a page with Supabase Storage need ex. `/profile/$id.edit`. If `useSupabaseClient` returns `true` you can initialize the client in the pages/routes
 ```js
 const supa = useRef<SupabaseClient>()
 
@@ -62,7 +62,7 @@ useEffect(() => {
     return () => {}
 }, [])
 ```
-Check `/profile` page for more details
+Check `/profile/$id.edit` page for more details
 
 __Note__: Refer the [basic](https://github.com/one-aalam/remix-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`.
 

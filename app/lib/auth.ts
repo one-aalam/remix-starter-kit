@@ -21,6 +21,7 @@ export const isAuthenticated = async(request: any, validateAndReturnUser: boolea
 }
 
 export const getUserByToken = async(token: string) : Promise<{ user: User | null} | any> => {
+    supabase.auth.setAuth(token)
     const { user, error } = await supabase.auth.api.getUser(token)
     return { user, error }
 }
