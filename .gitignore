@@ -5,3 +5,7 @@ node_modules
 /public/build
 /app/styles/app.css
 .env
+
+.vercel
+.output
+api/build
