@@ -1,4 +1,3 @@
-import { redirect } from 'remix'
 import type { User } from '@supabase/supabase-js'
 import { supabaseToken } from '../cookies'
 import { supabase } from './supabase.server'

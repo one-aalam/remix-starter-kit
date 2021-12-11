@@ -9,7 +9,8 @@ import {
   ScrollRestoration,
   useCatch,
   useLocation,
-  useLoaderData
+  useLoaderData,
+  useMatches
 } from "remix";
 import type { LinksFunction, LoaderFunction } from "remix";
 
@@ -50,6 +51,8 @@ export let loader: LoaderFunction = async ({ request }) => {
     return {
       ENV: {
         SOME_SECRET: process?.env?.SOME_SECRET,
+        SUPABASE_URL: process?.env?.SUPABASE_URL,
+        SUPABASE_KEY: process?.env?.SUPABASE_KEY,
       },
       data: 'some'
     };
@@ -63,6 +66,8 @@ function Document({
   title?: string;
 }) {
     let data = useLoaderData();
+    const matches = useMatches();
+    const useSupabaseClient = matches.filter(match => match.handle && match.handle.useSupabaseClient()).length ? true : false
   return (
     <html lang="en">
       <head>
@@ -84,6 +89,7 @@ function Document({
           }}
         />}
         <Scripts />
+        {useSupabaseClient && <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" async={true} defer={true}/>}
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
