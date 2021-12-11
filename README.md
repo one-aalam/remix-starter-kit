@@ -39,10 +39,30 @@ Out of the box you get all the `essentials`
 with [Supabase](https://supabase.io/) support
 - __Authentication System__ with Supabase GoTrue
 - __User Profiles__ available on `/profile` as an example for Supabase PostgREST (CRUD API) (*retreival-only for now*)
-- __User Avatar__ with Supbase Storage(AWS S3 backed effortless uploads) available on `/images/[bucket-name]/[image-name]` resource routes (*retreival-only for now*)
-
+- __User Avatar__ with Supbase Storage(AWS S3 backed effortless uploads) available on `/images/[bucket-name]/[image-name]` resource routes. _When retrieving you use the SDK server-side, and when uploading you use the client-side SDK loaded from CDN to upload the images to Supabase managed buckets, which are linked to profile on successful uploads.
 
 and a bunch of pre-made, hand-rolled(easily replace-able) components, that you almost always end up installing/using for any non-trivial project
+
+Client-side SDK inclusion is managed on per-page basis through
+```js
+export const handle = {
+    // Need by Remix to load Supabase JS client-side from CDN. Use only for scenraios where it's absolutely necessary
+    useSupabaseClient: () => true
+};
+```
+for the routes that need the library client-side, like a page with Supabase Storage need ex. `/profile`. If `useSupabaseClient` returns `true` you can initialize the client in the pages/routes
+```js
+const supa = useRef<SupabaseClient>()
+
+useEffect(() => {
+    fetch('/config').then(res => res.json()).then(config => {
+        if (config && config.supabaseToken) supa.current = getSupabaseClient(config.supabaseToken)
+        // const { user  } = await supa.current?.auth.api.getUser(config.supabaseToken)
+    })
+    return () => {}
+}, [])
+```
+Check `/profile` page for more details
 
 __Note__: Refer the [basic](https://github.com/one-aalam/remix-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`.
 
