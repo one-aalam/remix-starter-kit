@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { LoaderFunction, redirect, useLoaderData, useActionData, Form, useTransition, ActionFunction, json } from "remix"
-import { User, SupabaseClient } from '@supabase/supabase-js'
+import { User } from '@supabase/supabase-js'
 import { supabase } from '~/lib/supabase.server'
 import { isAuthenticated, getUserByRequestToken } from "~/lib/auth"
-import { getSupabaseClient } from "~/lib/supabase.client"
 import AppLayout from '~/components/AppLayout'
 
 type ProfileAttrs = {
@@ -14,7 +13,7 @@ type ProfileAttrs = {
 
 export const handle = {
     // Need by Remix to load Supabase JS client-side from CDN. Use only for scenraios where it's absolutely necessary
-    useSupabaseClient: () => true
+    useSupabaseClient: true
 };
 
 export let loader: LoaderFunction = async ({ request, params }) => {
@@ -70,29 +69,21 @@ export default function ProfileEdit() {
     const errors = useActionData<ProfileAttrs>()
     const [ avatarUrl, setAvatarUrl ] = useState<string>(profile?.avatar_url || '')
     const [ avatarLoading, setAvatarLoading ] = useState<boolean>(false)
-    const supa = useRef<SupabaseClient>()
-
-    useEffect(() => {
-        fetch('/config').then(res => res.json()).then(config => {
-            if (config && config.supabaseToken) supa.current = getSupabaseClient(config.supabaseToken)
-            // const { user  } = await supa.current?.auth.api.getUser(config.supabaseToken)
-        })
-        return () => {}
-    }, [])
 
     async function handleFileChange(event: any) {
         if (!event.target.files || event.target.files.length === 0) {
             throw new Error('You must select an image to upload.');
         }
+        const supabaseClient = window.supabaseClient
         const file = event.target.files[0];
         const fileExt = file.name.split('.').pop();
         const fileName = `${Math.random()}.${fileExt}`;
         const filePath = `${fileName}`;
         setAvatarLoading(true)
-        let resp = await supa.current?.storage.from('avatars').upload(filePath, file);
+        let resp = await supabaseClient?.storage.from('avatars').upload(filePath, file);
         if (resp?.error) { throw resp.error }
 
-        await supa.current?.from('profiles').upsert({ id: user?.id, avatar_url: filePath })
+        await supabaseClient.from('profiles').upsert({ id: user?.id, avatar_url: filePath })
         let downloadingImage = new Image();
         downloadingImage.onload = function () {
             setAvatarUrl(filePath)
