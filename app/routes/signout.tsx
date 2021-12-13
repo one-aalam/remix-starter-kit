@@ -1,5 +1,5 @@
 import { ActionFunction, redirect } from "remix";
-import { supabase } from '../lib/supabase.server'
+import { supabase } from '../lib/supabase/supabase.server'
 import { supabaseToken } from '../cookies'
 import { getToken } from '../lib/auth'
 

@@ -1,8 +1,13 @@
-import type { SupabaseClient } from '@supabase/supabase-js'
+import type { SupabaseScript } from './lib/supabase'
 
 declare global {
     interface Window {
-        supabaseClient: SupabaseClient;
+        ENV: {
+            SUPABASE_URL: string,
+            SUPABASE_KEY: string
+
+        },
+        supabase?: SupabaseScript;
     }
 }
 

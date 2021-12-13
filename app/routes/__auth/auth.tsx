@@ -3,7 +3,7 @@ import type { Session, User } from '@supabase/supabase-js'
 import { useActionData, MetaFunction, redirect, json } from "remix"
 import AuthForm, { AuthCreds } from "../../components/AuthForm"
 import { supabaseToken } from "../../cookies"
-import { supabase } from '../../lib/supabase.server'
+import { supabase } from '../../lib/supabase/supabase.server'
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {

@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { LoaderFunction, redirect, useLoaderData, useActionData, Form, useTransition, ActionFunction, json } from "remix"
 import { User } from '@supabase/supabase-js'
-import { supabase } from '~/lib/supabase.server'
+import { supabase } from '~/lib/supabase/supabase.server'
 import { isAuthenticated, getUserByRequestToken } from "~/lib/auth"
+import { getSupabaseClient } from '~/lib/supabase/supabase.client'
 import AppLayout from '~/components/AppLayout'
 
 type ProfileAttrs = {
@@ -10,11 +11,6 @@ type ProfileAttrs = {
     website?: string,
     avatar_url?:string,
 }
-
-export const handle = {
-    // Need by Remix to load Supabase JS client-side from CDN. Use only for scenraios where it's absolutely necessary
-    useSupabaseClient: true
-};
 
 export let loader: LoaderFunction = async ({ request, params }) => {
     if (!(await isAuthenticated(request))) return redirect('/auth')
@@ -74,7 +70,7 @@ export default function ProfileEdit() {
         if (!event.target.files || event.target.files.length === 0) {
             throw new Error('You must select an image to upload.');
         }
-        const supabaseClient = window.supabaseClient
+        const supabaseClient = await getSupabaseClient()
         const file = event.target.files[0];
         const fileExt = file.name.split('.').pop();
         const fileName = `${Math.random()}.${fileExt}`;

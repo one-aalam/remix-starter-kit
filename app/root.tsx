@@ -67,7 +67,7 @@ function Document({
 }) {
     let data = useLoaderData();
     const matches = useMatches();
-    const useSupabaseClient = matches.some(match => match.handle && match.handle?.useSupabaseClient)
+    // const useWhenSomethingIsTrue = matches.some(match => match.handle && match.handle?.something)
   return (
     <html lang="en">
       <head>
@@ -89,20 +89,6 @@ function Document({
           }}
         />}
         <Scripts />
-        {useSupabaseClient && <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" async={true} defer={true}/>}
-        {useSupabaseClient && <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const { createClient } = window.supabase
-                        supabaseClient =  createClient(window.ENV.SUPABASE_URL, window.ENV.SUPABASE_KEY)
-                        fetch('/config').then(res => res.json()).then(config => {
-                            if (config && config.supabaseToken) supabaseClient.auth.setAuth(config.supabaseToken)
-                        })
-                    });
-                `,
-            }}
-        />}
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
