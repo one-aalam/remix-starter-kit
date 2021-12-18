@@ -24,6 +24,7 @@
     "@remix-run/serve": "^1.1.1",
     "@remix-run/vercel": "^1.1.1",
     "@supabase/supabase-js": "^1.28.5",
+    "apollo-server-core": "^3.5.0",
     "dotenv": "^10.0.0",
     "faker": "^5.5.3",
     "react": "^17.0.2",

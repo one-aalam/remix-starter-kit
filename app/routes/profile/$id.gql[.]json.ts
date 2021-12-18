@@ -27,4 +27,4 @@ export let loader: LoaderFunction = async ({ request, params }) => {
     return json({
         data
     })
-  }
+}

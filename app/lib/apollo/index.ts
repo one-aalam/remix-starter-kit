@@ -3,7 +3,7 @@ import { SchemaLink } from '@apollo/client/link/schema';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { supabase } from '~/lib/supabase/supabase.server'
 
-const typeDefs = /* GraphQL */`
+export const typeDefs = /* GraphQL */`
     schema {
         query: Query
     }
@@ -18,7 +18,7 @@ const typeDefs = /* GraphQL */`
     }
 `;
 
-const resolvers = {
+export const resolvers = {
     Query: {
         profile: async (root: any, args: { id: string }, context: any, info: any) => {
             // Bring your Prisma/ORM, API calls here...
