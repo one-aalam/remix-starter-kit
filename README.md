@@ -26,6 +26,8 @@ _Remix Starter Kit_ is an opinionated boilerplate based off of [Remix](https://r
 <br />
 -->
 
+__Experimental__ branch to support [multi-part/form-data](https://github.com/remix-run/remix/pull/383/files) encodings, and file uploads.
+
 Out of the box you get all the `essentials`
 - __Typescript__ as the language choice
 - __Tailwind CSS__ for quick styling without getting out of your HTML
