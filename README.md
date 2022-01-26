@@ -113,6 +113,36 @@ create policy "Anyone can upload an avatar."
   with check ( bucket_id = 'avatars' );
 ```
 
+## What you'll get
+With all the configs done right, you should get the following screens/views up and running
+
+
+### Sign In
+<hr/>
+<img src="./public/app-shots/sign-in.png" alt="Sign In">
+<hr/>
+
+### Sign In (with validation errors)
+<hr/>
+<img src="./public/app-shots/sign-in-error.png" alt="Sign In">
+<hr/>
+
+### Sign Up
+<hr/>
+<img src="./public/app-shots/sign-up.png" alt="Sign In">
+<hr/>
+
+### Profile (default landing)
+<hr/>
+<img src="./public/app-shots/profile.png" alt="Sign In">
+<hr/>
+
+### Profile Update Screen (with image upload)
+<hr/>
+<img src="./public/app-shots/profile-edit.png" alt="Sign In">
+
+
+
 ## Recommendations
 - Use `npm-check-updates` to ineractively update your dependencies using `ncu -i`
 
