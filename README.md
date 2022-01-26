@@ -35,7 +35,7 @@ Out of the box you get all the `essentials`
 - __Icons through React-icons__ for on-demand, tree-shakeable icons
 - __ESLint__ for static code analysis
 - __Prettier__ for code formatting (even for your TailwindCSS classes - sorted as per Tailwindlab reccomendations)
-- __Playwright__ for reliable end-to-end test cases
+- __Playwright__ for reliable end-to-end test cases (+ end-to-end test cases for the homepage and the sign-in page)
 
 with [Supabase](https://supabase.io/) support
 - __Authentication System__ with Supabase GoTrue
