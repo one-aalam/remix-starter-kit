@@ -69,7 +69,7 @@ export default function Index() {
         <ul className="flex flex-row justify-center gap-2">
           {data.topPages.map(page => (
             <li key={page.to} className="remix__page__resource">
-                <Link className={`btn btn-primary ${!page.isPrimary && 'btn-outline'}`} to={page.to} prefetch="intent">{page.name} &rarr;</Link>
+                <Link className={`action__auth btn btn-primary ${!page.isPrimary && 'btn-outline'}`} to={page.to} prefetch="intent">{page.name} &rarr;</Link>
             </li>
           ))}
         </ul>

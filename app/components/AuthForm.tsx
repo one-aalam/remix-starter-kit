@@ -19,7 +19,7 @@ function AuthForm({ isSignIn: isSignInProp = true, errors = {} }: PropsWithChild
         <Form className="w-full bg-gray-50 px-10 py-8 rounded-md shadow-md" method="post">
             <fieldset>
                 <legend className="text-purple-600 pb-4 text-4xl border-b mb-4">{ isSignIn ? `Sign In` : `Sign Up!`  }</legend>
-                <div className="h-3 text-xs">{errors?.service && errors.service.map(error => error)}</div>
+                <div className="errors h-3 text-xs">{errors?.service && errors.service.map(error => <span className="error">{error}</span>)}</div>
                 <br/>
                 <div className="w-full mb-6">
                     <label className="block uppercase font-semibold text-gray-600 text-base" htmlFor="email">Email</label>
