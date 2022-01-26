@@ -112,6 +112,7 @@ create policy "Anyone can upload an avatar."
   on storage.objects for insert
   with check ( bucket_id = 'avatars' );
 ```
+**Note** When going live remember to configure `SUPABASE_URL` and `SUPABASE_KEY` in your deployment service provider like Vercel
 
 ## What you'll get
 With all the configs done right, you should get the following screens/views up and running
