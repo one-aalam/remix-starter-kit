@@ -114,7 +114,7 @@ create policy "Anyone can upload an avatar."
 ```
 **Note** When going live remember to configure `SUPABASE_URL` and `SUPABASE_KEY` in your deployment service provider like Vercel
 
-## What you'll get
+## What you'll get?
 With all the configs done right, you should get the following screens/views up and running
 
 
