@@ -44,6 +44,8 @@ with [Supabase](https://supabase.io/) support
 
 and a bunch of pre-made, hand-rolled(easily replace-able) components, that you almost always end up installing/using for any non-trivial project
 
+- __*Bonus(Ad)__ wanna experiment with Edge/Cloudflare? Check out [Remix Edge Kit](https://github.com/one-aalam/remix-edge-kit/) and choose your journey with [FaunaDB](https://github.com/one-aalam/remix-edge-kit/tree/with-fauna), [Supabase](https://github.com/one-aalam/remix-edge-kit/tree/with-supabase), or [Prisma + DataProxy](https://github.com/one-aalam/remix-edge-kit/tree/main)(Railway.app) or [Prisma + DataProxy](https://github.com/one-aalam/remix-edge-kit/tree/with-planetscale)(Planetscale). The later 2 are WIP.
+
 __Note__: Refer the [basic](https://github.com/one-aalam/remix-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`.
 
 
