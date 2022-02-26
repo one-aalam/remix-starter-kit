@@ -30,7 +30,7 @@ Out of the box you get all the `essentials`
 - __Typescript__ as the language choice
 - __Tailwind CSS__ for quick styling without getting out of your HTML
 - __Daisy UI__ for pre-made TailwindCSS component classes
-- __Tailwind UI + React Hot Toast__ for robust headless logic you can use for components like Dialog/Modal, Dropdown, List, etc.
+- __Headless UI + React Hot Toast__ for robust headless logic you can use for components like Dialog/Modal, Dropdown, List, etc.
 - __WorkSans__ as the App font
 - __Icons through React-icons__ for on-demand, tree-shakeable icons
 - __ESLint__ for static code analysis
