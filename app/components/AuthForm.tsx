@@ -37,7 +37,7 @@ function AuthForm({ isSignIn: isSignInProp = true, errors = {} }: PropsWithChild
 
                     <div className="text-right">
                         <small className="block">{ isSignIn ? `not a member?` : `already a member?` }</small>
-                        <button type="button"  title="Sign Up" onClick={() => { setIsSignIn(!isSignIn)}}>{ isSignIn ? `Sign Up!` : `Sign In` }</button>
+                        <button type="button"  title={ isSignIn ? `Sign Up!` : `Sign In` } onClick={() => { setIsSignIn(!isSignIn)}}>{ isSignIn ? `Sign Up!` : `Sign In` }</button>
                     </div>
                 </div>
             </fieldset>
