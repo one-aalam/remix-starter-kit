@@ -69,7 +69,7 @@ If new to Supabase
 - Create a Organisation, and a project
 
 Once done, or if you already have a Supabase project
-- Copy the generated project's API authentication details from `https://app.supabase.io/project/<your-awesome-remix-project>/api/default?page=auth`
+- Copy the generated project's API authentication details from `https://app.supabase.io/project/<your-awesome-remix-project>/api?page=auth`
 - Place the details in `.env` as `SUPABASE_URL` and `SUPABASE_KEY`
 - Install NPM dependencies, by running `npm install` or `npm i`
 
